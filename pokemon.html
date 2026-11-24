@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse some of my favorite Pokémon with a custom web component">
+    <title>Pokémon Cards</title>
+    <link rel="icon" href="images/user-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="pokemon-card.js" defer></script>
+</head>
+<body>
+    <header>
+        <p><a href="index.html">Katie Ngo</a></p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form - No JS</a></li>
+                <li><a href="form-with-js.html">Contact Form - JS</a></li>
+                <li><a href="pokemon.html" aria-current="page">Pokémon Component</a></li>
+                <li><a href="facts.html">Useless Facts</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="theme-toggle" class="theme-toggle" hidden>Switch to dark theme</button>
+    </header>
+
+    <main>
+        <h1>Pokémon Cards</h1>
+        <p>I collect Pokémon cards, so here are a few favorites. Use the buttons in the card to browse and see more details!</p>
+        <p>
+            <button type="button" id="pokemon-view-toggle" class="view-toggle" aria-controls="pokemon-browser" hidden>Switch to compact view</button>
+        </p>
+
+        <pokemon-card id="pokemon-browser">
+            <!-- Shown only if JavaScript is off -->
+            <p>Turn on JavaScript to browse my favorite Pokémon.</p>
+        </pokemon-card>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Katie Ngo.</p>
+        <p><a href="index.html">Back to home</a></p>
+    </footer>
+</body>
+</html>

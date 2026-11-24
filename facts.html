@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Load facts with a custom web component">
+    <title>Useless Facts</title>
+    <link rel="icon" href="images/user-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script src="theme.js"></script>
+    <script src="fact-card.js" defer></script>
+</head>
+<body>
+    <header>
+        <p><a href="index.html">Katie Ngo</a></p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="form-no-js.html">Contact Form - No JS</a></li>
+                <li><a href="form-with-js.html">Contact Form - JS</a></li>
+                <li><a href="pokemon.html">Pokémon Component</a></li>
+                <li><a href="facts.html" aria-current="page">Useless Facts</a></li>
+            </ul>
+        </nav>
+        <button type="button" id="theme-toggle" class="theme-toggle" hidden>Switch to dark theme</button>
+    </header>
+
+    <main>
+        <h1>Useless Facts</h1>
+        <p>Get a random or today's fact.</p>
+        <p>
+            <button type="button" id="fact-view-toggle" class="view-toggle" aria-controls="fact-finder" hidden>Switch to compact view</button>
+        </p>
+
+        <fact-card id="fact-finder">
+            <!-- Shown only if JavaScript is off -->
+            <noscript>
+                <p>Enable JavaScript to load live data for the fact widget.</p>
+            </noscript>
+        </fact-card>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Katie Ngo.</p>
+        <p><a href="index.html">Back to home</a></p>
+    </footer>
+</body>
+</html>

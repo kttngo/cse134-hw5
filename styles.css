@@ -416,6 +416,300 @@ footer {
   border-top: 2px solid var(--color-border);
 }
 
+/* Pokemon card */
+pokemon-card {
+  display: block;
+  max-width: 26rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+}
+
+pokemon-card h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+.pokemon-view-label {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.pokemon-display {
+  text-align: center;
+}
+
+.pokemon-display img {
+  display: block;
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+}
+
+.pokemon-display h3 {
+  margin: 0.5rem 0;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pokemon-types li {
+  padding: 0.15em 0.75em;
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  border-radius: 1em;
+}
+
+.pokemon-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.pokemon-details dt {
+  font-weight: bold;
+}
+
+.pokemon-details dd {
+  margin: 0;
+}
+
+.pokemon-details[hidden] {
+  display: none;
+}
+
+/* Compact view -> smaller artwork and less padding, hidden details */
+pokemon-card[compact] {
+  padding: 0.75rem 1rem;
+}
+
+pokemon-card[compact] .pokemon-display img {
+  width: 96px;
+  height: 96px;
+}
+
+.pokemon-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.pokemon-status {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* The page button outside the component, styled like the theme toggle */
+.view-toggle {
+  color: var(--color-text);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.view-toggle:hover {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+}
+
+.view-toggle[hidden] {
+  display: none;
+}
+
+/* Part 2 & 3 Fact card + view toggle */
+fact-card {
+  display: block;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+}
+fact-card {
+  display: block;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--fact-card-text, #0d1018);
+  background-color: var(--fact-card-bg, #ffffff);
+  border: 2px solid var(--fact-card-border, #3d4c70);
+  border-radius: 10px;
+}
+
+fact-card h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+  color: var(--fact-card-heading, #0a62c7);
+}
+
+.fact-view-label {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--fact-card-muted, #3d4c70);
+}
+
+.fact-chooser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.fact-chooser label {
+  font-weight: bold;
+}
+
+.fact-chooser select {
+  padding: 0.35em 0.5em;
+  font: inherit;
+  color: var(--fact-card-text, #0d1018);
+  background-color: var(--fact-card-bg, #ffffff);
+  border: 2px solid var(--fact-card-border, #3d4c70);
+  border-radius: 6px;
+}
+
+fact-card select:focus-visible,
+fact-card button:focus-visible,
+fact-card a:focus-visible {
+  outline: 3px solid var(--fact-card-focus, #0000ff);
+  outline-offset: 2px;
+}
+
+.fact-display {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--fact-card-fact-bg, #f1f3f7);
+  border-left: 6px solid var(--fact-card-accent, #0a62c7);
+  border-radius: 6px;
+}
+
+.fact-text {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.fact-text,
+.fact-details dd {
+  overflow-wrap: anywhere;
+}
+
+.fact-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.fact-details dt {
+  font-weight: bold;
+}
+
+.fact-details dd {
+  margin: 0;
+}
+
+.fact-details a {
+  color: var(--fact-card-accent, #0a62c7);
+}
+
+.fact-details[hidden] {
+  display: none;
+}
+
+fact-card[compact] {
+  padding: 0.75rem 1rem;
+}
+
+fact-card[compact] .fact-text {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.fact-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.fact-controls button {
+  color: var(--fact-card-button-text, #ffffff);
+  background-color: var(--fact-card-accent, #0a62c7);
+}
+
+.fact-controls button:hover {
+  color: var(--fact-card-bg, #ffffff);
+  background-color: var(--fact-card-text, #0d1018);
+}
+
+.fact-controls button:disabled,
+.fact-controls button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fact-status {
+  margin: 0.75rem 0 0;
+  font-weight: bold;
+}
+
+.fact-status[data-state="loading"]::before {
+  content: "\23F3  " / "";
+}
+
+.fact-status[data-state="error"] {
+  color: var(--fact-card-error, #ad0222);
+}
+
+.fact-status[data-state="error"]::before {
+  content: "\2716  " / "";
+}
+
+fact-card {
+  --fact-card-text: var(--color-text);
+  --fact-card-bg: var(--color-surface);
+  --fact-card-border: var(--color-border);
+  --fact-card-heading: var(--color-accent);
+  --fact-card-muted: var(--color-muted);
+  --fact-card-accent: var(--color-accent);
+  --fact-card-button-text: var(--color-on-accent);
+  --fact-card-fact-bg: var(--color-message-bg);
+  --fact-card-focus: var(--color-focus);
+  --fact-card-error: var(--color-error);
+}
+
+.view-toggle {
+  color: var(--color-text);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.view-toggle:hover {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+}
+
+.view-toggle[hidden] {
+  display: none;
+}
+
 /* Smaller screens */
 @media (max-width: 40rem) {
   header {

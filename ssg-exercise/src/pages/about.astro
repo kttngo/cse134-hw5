@@ -1,0 +1,81 @@
+---
+// About page: copied from the portfolio's about.html
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Background, skills, and experience.">
+  <title>About</title>
+  <link rel="icon" href="/images/user-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script is:inline src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <p><a href="/">Main Page</a></p>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/" aria-current="page">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" id="theme-toggle" class="theme-toggle" hidden>Switch to dark theme</button>
+  </header>
+
+  <main>
+    <h1>About Me</h1>
+    <p>I'm from Sacramento, CA. My first encounter with programming was when I joined Girls Who Code in my freshman year of highschool.</p>
+
+    <section>
+      <h2>Languages</h2>
+      <ul class="tags">
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>Java</li>
+        <li>C</li>
+      </ul>
+
+      <h2>Frameworks &amp; Tools</h2>
+      <ul class="tags">
+        <li>React</li>
+        <li>Git &amp; GitHub</li>
+        <li>Figma</li>
+      </ul>
+
+      <h2>Skills</h2>
+
+      <svg class="skills-chart" width="400" height="120" viewBox="0 0 200 100" role="img">
+        <title>Bar chart of my experience with HTML, CSS, and JS.</title>
+        <text x="0" y="24" font-family="sans-serif" font-size="15">HTML</text>
+        <rect x="90" y="10" width="200" height="16" fill="#1492f2"/>
+        <text x="0" y="53" font-family="sans-serif" font-size="15">CSS</text>
+        <rect x="90" y="40" width="190" height="16" fill="#1492f2" opacity="0.65"/>
+        <text x="0" y="82" font-family="sans-serif" font-size="15">JavaScript</text>
+        <rect x="90" y="70" width="160" height="16" fill="#1492f2" opacity="0.4"/>
+      </svg>
+    </section>
+
+    <section>
+      <br>
+      <h3>Interests</h3>
+      <article>
+        <h4>Collecting Pokemon!</h4>
+        <p>I enjoy going to card shows and interacting with vendors. I have a binder of my favorite pokemon cards.</p>
+      </article>
+      <article>
+        <h4>Basketball</h4>
+        <p>I've been playing basketball since middle school. It's really fun to visit new parks and test out their courts.</p>
+      </article>
+    </section>
+
+    <hello-world></hello-world>
+    <script is:inline src="/hello-world.js" defer></script>
+  </main>
+
+  <Footer />
+</body>
+</html>

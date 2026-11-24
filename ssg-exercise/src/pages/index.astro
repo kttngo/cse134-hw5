@@ -1,0 +1,78 @@
+---
+// Home page: copied from the portfolio's index.html
+import Footer from "../components/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katie Ngo's Portfolio</title>
+  <link rel="icon" href="/images/user-icon.png">
+  <link rel="stylesheet" href="/styles.css">
+  <script is:inline src="/theme.js"></script>
+</head>
+<body>
+  <header>
+    <p><a href="/">Katie Ngo</a></p>
+    <nav>
+      <ul>
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/about/">About</a></li>
+      </ul>
+    </nav>
+    <button type="button" id="theme-toggle" class="theme-toggle" hidden>Switch to dark theme</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 id="intro-title">Welcome to my page, I'm Katie!</h1>
+      <picture>
+        <source media="(min-width: 700px)" srcset="/images/profile.png">
+        <img src="/images/profile.png" alt="Portrait of Katie Ngo" width="250" height="250">
+      </picture>
+      <div class="intro-text">
+        <p>
+          I'm a <strong>Mathematics-Computer Science</strong> student who builds
+          <em>websites and applications</em>. I'm currently studying at <b>UC San Diego</b> and looking for job opportunities in machine learning,
+        </p>
+        <p>
+          <a href="/about/">Learn more about me!</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="card-grid">
+      <h2>Projects</h2>
+      <project-card>
+        <h3>Manta Issue Tracker</h3>
+        <p>Built a command-line <i>issue tracker</i> that helps developers manage project tasks and lets AI agents create, track, and resolve issues directly within their projects.</p>
+        <p>Built with <span class="tech-stack">JavaScript</span></p>
+        <p>
+          <label for="p1-progress">Project status:</label>
+          <progress id="p1-progress" max="100" value="100">100% complete</progress>
+        </p>
+      </project-card>
+
+      <project-card>
+        <h3>Modeling Reddit Post Popularity</h3>
+        <p>Developed a Python-based data science project to analyze Reddit post features and build predictive models to estimate post popularity and identify the factors that drive user engagement.</p>
+        <p>
+          <label for="p2-progress">Project status:</label>
+          <progress id="p2-progress" max="100" value="100">100% complete</progress>
+        </p>
+      </project-card>
+    </section>
+
+    <hello-world></hello-world>
+    <noscript>
+      <p>JavaScript is currently turned off.</p>
+    </noscript>
+    <script is:inline src="/hello-world.js" defer></script>
+  </main>
+
+  <Footer />
+</body>
+</html>
+

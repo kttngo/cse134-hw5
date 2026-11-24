@@ -1,0 +1,741 @@
+/* Hw #3 stylesheet for Katie Ngo's portfolio */
+
+:root {
+  color-scheme: light;
+
+  --color-text: #0d1018;
+  --color-bg: #fbfbfb;
+  --color-surface: white;
+  --color-accent: #0a62c7;
+  --color-on-accent: white;
+  --color-border: #3d4c70;
+  --color-muted: #3d4c70;
+  --color-focus: blue;
+
+  --color-error: #ad0222;
+  --color-error-bg: #fff4f5;
+  --color-success: #1b7c37;
+  --color-message-bg: #f1f3f7;
+  --color-limit-bg: #ffefc2;
+  --color-warning-border: #030303;
+  --color-warning-bg: #fff8e6;
+  --color-limit-bg: #ffefc2;
+  --color-warning-text: #681c1c;
+
+  --font-main: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  --page-width: 60rem;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-text: #e8ecf4;
+  --color-bg: #12151c;
+  --color-surface: #1c212b;
+  --color-accent: #7cb4ff;
+  --color-on-accent: #0d1018;
+  --color-border: #8f9bb8;
+  --color-muted: #b4bdd0;
+  --color-focus: #ffd166;
+
+  --color-error: #f98787;
+  --color-error-bg: #291418;
+  --color-success: #6fd38f;
+  --color-message-bg: #1c212b;
+  --color-warning-border: #e0b556;
+  --color-warning-bg: #55461f;
+  --color-limit-bg: #6f5a14;
+  --color-warning-text: #ffd166;
+}
+
+body {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  margin: 2rem 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+/* Adjacent sibling: the introduction paragraph after h1 is larger */
+h1 + p {
+  font-size: 1.2rem;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:hover {
+  color: var(--color-text);
+  background-color: var(--color-accent);
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--color-border);
+}
+
+/* Child combinator: this changes the font of the paragraph name inside the header */
+header > p {
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+/* Home page */
+.hero {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero h1 {
+  grid-column: 1 / -1;
+}
+
+.hero img {
+  border-radius: 50%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.card-grid h2 {
+  grid-column: 1 / -1;
+}
+
+project-card {
+  display: block;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+section > article {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.25em 0.75em;
+  border: 1px solid var(--color-border);
+  border-radius: 1em;
+  background-color: var(--color-surface);
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+fieldset {
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-surface);
+}
+
+/* Attribute selector: text fields fill the available width */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 90%;
+  max-width: 30rem;
+  padding: 0.5em;
+  font: inherit;
+}
+
+/* Attribute selector: radio buttons and checkboxes use the site's accent color */
+input[type="radio"],
+input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.1rem;
+  accent-color: var(--color-accent);
+}
+
+.skills-chart text {
+  fill: var(--color-text);
+}
+
+.theme-toggle {
+  margin-left: auto;
+  margin-bottom: 0.75rem;
+  color: var(--color-text);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.theme-toggle:hover {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+}
+
+/* Hidden until theme.js shows it */
+
+.theme-toggle[hidden] {
+  display: none;
+}
+
+/* HW 4 part 1: contact form */
+
+nav a[aria-current="page"] {
+  font-weight: bold;
+}
+
+.contact-form {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 36rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-field label {
+  font-weight: bold;
+}
+
+.form-hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+.form-instructions {
+  margin: 0;
+}
+
+.required-marker {
+  font-weight: normal;
+  color: var(--color-muted);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  padding-right: 2.5rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  background-repeat: no-repeat;
+  background-position: right 0.6rem center;
+  background-size: 1.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  background-position: right 0.6rem top 0.6rem;
+}
+
+.contact-form input:user-invalid,
+.contact-form textarea:user-invalid {
+  border-color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+.contact-form input:user-valid,
+.contact-form textarea:user-valid {
+  border-color: var(--color-success);
+}
+
+.contact-form input:focus-visible,
+.contact-form textarea:focus-visible,
+.contact-form button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* part 3: JS message area */
+.form-message {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-message-bg);
+  border: 2px solid var(--color-border);
+  border-left-width: 6px;
+  border-radius: 6px;
+}
+
+.form-message[hidden],
+.form-message [hidden] {
+  display: none;
+}
+
+.form-message-title {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+.form-message p {
+  margin: 0;
+}
+
+.error-message {
+  border-color: var(--color-error);
+  background-color: var(--color-error-bg);
+}
+
+.field-error::before {
+  content: "\2715  " / "";
+  font-weight: bold;
+  color: var(--color-error);
+}
+
+.no-errors::before {
+  content: "\2713  " / "";
+  font-weight: bold;
+  color: var(--color-success);
+}
+
+.info-message[data-state="warning"] {
+  border-color: var(--color-warning-border);
+  background-color: var(--color-warning-bg);
+}
+
+.info-message[data-state="limit"] {
+  border-color: var(--color-warning-border);
+  background-color: var(--color-limit-bg);
+}
+
+
+#char-count[data-state="warning"],
+#char-count[data-state="limit"] {
+  font-weight: bold;
+  color: var(--color-warning-text);
+}
+
+#char-count[data-state="warning"]::before {
+  content: "\26A0  " / "";
+}
+
+#char-count[data-state="limit"]::before {
+  content: "\26D4  " / "";
+}
+
+.char-warning {
+  font-weight: bold;
+  color: var(--color-warning-text);
+}
+
+.char-warning:not(:empty)::before {
+  content: "\26A0  " / "";
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 2px solid var(--color-border);
+}
+
+/* Pokemon card */
+pokemon-card {
+  display: block;
+  max-width: 26rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+}
+
+pokemon-card h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+}
+
+.pokemon-view-label {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.pokemon-display {
+  text-align: center;
+}
+
+.pokemon-display img {
+  display: block;
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+}
+
+.pokemon-display h3 {
+  margin: 0.5rem 0;
+}
+
+.pokemon-types {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.pokemon-types li {
+  padding: 0.15em 0.75em;
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+  border-radius: 1em;
+}
+
+.pokemon-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.pokemon-details dt {
+  font-weight: bold;
+}
+
+.pokemon-details dd {
+  margin: 0;
+}
+
+.pokemon-details[hidden] {
+  display: none;
+}
+
+/* Compact view -> smaller artwork and less padding, hidden details */
+pokemon-card[compact] {
+  padding: 0.75rem 1rem;
+}
+
+pokemon-card[compact] .pokemon-display img {
+  width: 96px;
+  height: 96px;
+}
+
+.pokemon-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.pokemon-status {
+  margin: 0.75rem 0 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* The page button outside the component, styled like the theme toggle */
+.view-toggle {
+  color: var(--color-text);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.view-toggle:hover {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+}
+
+.view-toggle[hidden] {
+  display: none;
+}
+
+/* Part 2 & 3 Fact card + view toggle */
+fact-card {
+  display: block;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+}
+fact-card {
+  display: block;
+  max-width: 32rem;
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  color: var(--fact-card-text, #0d1018);
+  background-color: var(--fact-card-bg, #ffffff);
+  border: 2px solid var(--fact-card-border, #3d4c70);
+  border-radius: 10px;
+}
+
+fact-card h2 {
+  margin-top: 0;
+  font-size: 1.35rem;
+  color: var(--fact-card-heading, #0a62c7);
+}
+
+.fact-view-label {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: var(--fact-card-muted, #3d4c70);
+}
+
+.fact-chooser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.fact-chooser label {
+  font-weight: bold;
+}
+
+.fact-chooser select {
+  padding: 0.35em 0.5em;
+  font: inherit;
+  color: var(--fact-card-text, #0d1018);
+  background-color: var(--fact-card-bg, #ffffff);
+  border: 2px solid var(--fact-card-border, #3d4c70);
+  border-radius: 6px;
+}
+
+fact-card select:focus-visible,
+fact-card button:focus-visible,
+fact-card a:focus-visible {
+  outline: 3px solid var(--fact-card-focus, #0000ff);
+  outline-offset: 2px;
+}
+
+.fact-display {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: var(--fact-card-fact-bg, #f1f3f7);
+  border-left: 6px solid var(--fact-card-accent, #0a62c7);
+  border-radius: 6px;
+}
+
+.fact-text {
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.fact-text,
+.fact-details dd {
+  overflow-wrap: anywhere;
+}
+
+.fact-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.fact-details dt {
+  font-weight: bold;
+}
+
+.fact-details dd {
+  margin: 0;
+}
+
+.fact-details a {
+  color: var(--fact-card-accent, #0a62c7);
+}
+
+.fact-details[hidden] {
+  display: none;
+}
+
+fact-card[compact] {
+  padding: 0.75rem 1rem;
+}
+
+fact-card[compact] .fact-text {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.fact-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.fact-controls button {
+  color: var(--fact-card-button-text, #ffffff);
+  background-color: var(--fact-card-accent, #0a62c7);
+}
+
+.fact-controls button:hover {
+  color: var(--fact-card-bg, #ffffff);
+  background-color: var(--fact-card-text, #0d1018);
+}
+
+.fact-controls button:disabled,
+.fact-controls button[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.fact-status {
+  margin: 0.75rem 0 0;
+  font-weight: bold;
+}
+
+.fact-status[data-state="loading"]::before {
+  content: "\23F3  " / "";
+}
+
+.fact-status[data-state="error"] {
+  color: var(--fact-card-error, #ad0222);
+}
+
+.fact-status[data-state="error"]::before {
+  content: "\2716  " / "";
+}
+
+fact-card {
+  --fact-card-text: var(--color-text);
+  --fact-card-bg: var(--color-surface);
+  --fact-card-border: var(--color-border);
+  --fact-card-heading: var(--color-accent);
+  --fact-card-muted: var(--color-muted);
+  --fact-card-accent: var(--color-accent);
+  --fact-card-button-text: var(--color-on-accent);
+  --fact-card-fact-bg: var(--color-message-bg);
+  --fact-card-focus: var(--color-focus);
+  --fact-card-error: var(--color-error);
+}
+
+.view-toggle {
+  color: var(--color-text);
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+}
+
+.view-toggle:hover {
+  color: var(--color-on-accent);
+  background-color: var(--color-accent);
+}
+
+.view-toggle[hidden] {
+  display: none;
+}
+
+/* Smaller screens */
+@media (max-width: 40rem) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
